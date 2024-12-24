@@ -87,7 +87,14 @@ describe('User API Tests', () => {
   // Test nickname operations
   describe('Nickname Operations', () => {
     beforeEach(async () => {
-      // Create a test user and get token
+      // Create a test user before running nickname tests
+      await User.create({
+        username: 'nicktest',
+        password: 'testpass',
+        nickname: 'Original Nickname'
+      });
+
+      // Login to get the auth token
       const loginRes = await request(app)
         .post('/api/users/login')
         .send({
