@@ -2,10 +2,26 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+
   "scripts": {
     "dev": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage",
+    "test:ci": "jest --coverage --ci",
+    "test:watch": "jest --watch"
   },
+
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "setupFilesAfterEnv": ["./tests/setup.js"],
+    "testTimeout": 30000,
+    "verbose": true,
+    "detectOpenHandles": true,
+    "forceExit": true
+  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -25,5 +41,11 @@
     "path": "^0.12.7",
     "pm2": "^5.4.3",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^10.1.2",
+    "supertest": "^7.0.0"
   }
 }
