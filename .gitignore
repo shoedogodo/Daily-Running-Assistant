@@ -2,3 +2,4 @@
 backend/.env
 backend/.env.test
 backend/coverage/
+backend/node_modules/
