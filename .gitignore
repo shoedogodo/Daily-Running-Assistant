@@ -2,4 +2,12 @@
 backend/.env
 backend/.env.test
 backend/coverage/
-backend/node_modules/
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# MongoDB Memory Server cache
+**/.cache/
+**/node_modules/.cache/
+**/mongodb-memory-server/
